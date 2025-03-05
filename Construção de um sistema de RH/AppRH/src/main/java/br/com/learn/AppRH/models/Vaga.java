@@ -5,13 +5,15 @@ import jakarta.validation.constraints.NotEmpty;
 
 import java.util.List;
 
+@Entity(name = "vagas")
+@Table(name = "vagas")
 public class Vaga {
 
     private static final long serialVersionUID = 1l;
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private long id;
+    private String id;
 
     @NotEmpty
     private String nome;
@@ -66,5 +68,25 @@ public class Vaga {
 
     public void setCandidatos(List<Candidato> candidatos) {
         this.candidatos = candidatos;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Vaga(String id, String nome, String descricao, String data, String salario, List<Candidato> candidatos) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.data = data;
+        this.salario = salario;
+        this.candidatos = candidatos;
+    }
+
+    public Vaga() {
     }
 }
