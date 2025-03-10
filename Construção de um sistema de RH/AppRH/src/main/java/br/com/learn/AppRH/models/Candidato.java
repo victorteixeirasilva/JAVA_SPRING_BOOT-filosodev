@@ -3,6 +3,8 @@ package br.com.learn.AppRH.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
+import java.util.Optional;
+
 @Entity(name = "candidato")
 @Table(name = "candidato")
 public class Candidato {
@@ -70,7 +72,7 @@ public class Candidato {
         return vaga;
     }
 
-    public void setVaga(Vaga vaga) {
-        this.vaga = vaga;
+    public void setVaga(Optional<Vaga> vaga) {
+        this.vaga = vaga.get();
     }
 }
